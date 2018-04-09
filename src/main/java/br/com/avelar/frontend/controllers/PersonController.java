@@ -4,15 +4,15 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import br.com.avelar.backend.rest.model.Person;
 import br.com.avelar.frontend.bussiness.PersonLogic;
 
 @ViewScoped
-@ManagedBean
+@Named
 public class PersonController implements Serializable {
 	
 	private static final long serialVersionUID = 8328810995595502209L;
@@ -28,7 +28,6 @@ public class PersonController implements Serializable {
 	
 	@PostConstruct
 	public void init() {
-		person = new Person();
 		peopleList = logic.findAllPeople();
 	}
 	
